@@ -5,8 +5,8 @@
 	var tag = "";
 
 	var app = new Clarifai.App(
-		CLIENT_ID,
-		CLIENT_SECRET
+		'ppXwxVsxXZqC2_Bd3kkt6N8JXccqppjeSdCCLtRJ',
+		'VdEcQDxJbU3dw1P45EqjRbl7mSWPRdwZuWjSBfDV'
 	);
 
 	window.onload = function() {
