@@ -1,11 +1,9 @@
 
 	"use strict";
-	var bunny = "https://s-media-cache-ak0.pinimg.com/originals/da/98/1e/da981ed53735ed3d5dfec51e94e6024f.jpg";
 	var trackid = [];
 	var tag = "";
-
-
 	window.onload = function() {
+		getCredentials(function() {})
 	}
 	
 	function makeRequest(url) {
@@ -139,14 +137,12 @@
 	}
 
 	document.querySelector('input').addEventListener('change', function(){
-		getCredentials(function() {
-			var reader = new FileReader();
-			reader.onload = function() {
-				var imageData = this.result;
-				document.getElementById('result').innerHTML = '<img src="'+ imageData +'" />';
-				imageData = imageData.replace(/^data:image\/(.*);base64,/, '');
-				postImage(imageData);
-			};
-			reader.readAsDataURL(this.files[0]);
-		});
+		var reader = new FileReader();
+		reader.onload = function() {
+			var imageData = this.result;
+			document.getElementById('result').innerHTML = '<img src="'+ imageData +'" />';
+			imageData = imageData.replace(/^data:image\/(.*);base64,/, '');
+			postImage(imageData);
+		};
+		reader.readAsDataURL(this.files[0]);
 	}, false);
