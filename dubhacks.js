@@ -135,6 +135,7 @@
 
 	document.querySelector('input').addEventListener('change', function(){
 		var reader = new FileReader();
+		trackid = [];
 		reader.onload = function() {
 			var imageData = this.result;
 			document.getElementById('all').style.backgroundImage = 'url("' + imageData +'")';
