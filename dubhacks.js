@@ -34,8 +34,8 @@
 	function getCredentials(cb) {
 	    var data = {
 	        'grant_type': 'client_credentials',
-	        'client_id': "PgNQjgFSY3_Iqw16TEK28fha42ySzb8hOYUM2yhZ",
-	        'client_secret': "eouWrPsZh8QAYQHps6TE7hreIzWRghhk0QjjlRuB"
+	        'client_id': "ppXwxVsxXZqC2_Bd3kkt6N8JXccqppjeSdCCLtRJ",
+	        'client_secret': "VdEcQDxJbU3dw1P45EqjRbl7mSWPRdwZuWjSBfDV"
 	    };
 	    var url = 'https://api.clarifai.com/v1/token';
 
