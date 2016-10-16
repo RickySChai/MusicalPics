@@ -12,6 +12,7 @@
 		request.onload = getInfo;
 		request.open("GET", url, true);
 		request.send();
+
 	}
 
 	function getCredentials(cb) {
@@ -105,6 +106,10 @@
 		for(var i = 0; i < data.tracks.items.length; i++) {	
 			var song = data.tracks.items[i].name;
 			var artist = data.tracks.items[i].artists[0].name;
+
+			//get album art
+			//get canonical id -> play music
+
 			var flag = true;
 			for(var j = 0; j < artists.length; j++) {
 			  	if(artists[j] == artist) {
@@ -114,7 +119,7 @@
 			if(flag) {	
 				artists.push(artist);
 				var block = document.createElement("div");
-				block.innerHTML = artist + ":" + song;
+				block.innerHTML = artist + " : " + song;
 				document.getElementById("body").appendChild(block);
 			}
 		}
