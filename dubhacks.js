@@ -2,7 +2,7 @@
 
 	"use strict";
 	var bunny = "https://s-media-cache-ak0.pinimg.com/originals/da/98/1e/da981ed53735ed3d5dfec51e94e6024f.jpg";
-
+	var tag = "";
 	window.onload = function() {
 		run(bunny);
 	}
@@ -12,27 +12,6 @@
 		request.onload = getInfo;
 		request.open("GET", url, true);
 		request.send();
-	}
-
-	function getInfo() {
-		var data = JSON.parse(this.responseText);
-		var artists = [];
-		for(var i = 0; i < data.tracks.items.length; i++) {	
-			var song = data.tracks.items[i].album.name;
-			var artist = data.tracks.items[i].artists[0].name;
-			var flag = true;
-			for(var j = 0; j < artists.length; j++) {
-			  	if(artists[j] == artist) {
-			  		flag = false;
-			  	}
-			}
-			if(flag) {	
-				artists.push(artist);
-				var block = document.createElement("div");
-				block.innerHTML = artist + ":" + song;
-				document.getElementById("body").appendChild(block);
-			}
-		}
 	}
 
 	function getCredentials(cb) {
@@ -117,5 +96,27 @@
 	    } else {
 	        return postImage(imgurl);
 	    }
+	}
+
+
+	function getInfo() {
+		var data = JSON.parse(this.responseText);
+		var artists = [];
+		for(var i = 0; i < data.tracks.items.length; i++) {	
+			var song = data.tracks.items[i].name;
+			var artist = data.tracks.items[i].artists[0].name;
+			var flag = true;
+			for(var j = 0; j < artists.length; j++) {
+			  	if(artists[j] == artist) {
+			  		flag = false;
+			  	}
+			}
+			if(flag) {	
+				artists.push(artist);
+				var block = document.createElement("div");
+				block.innerHTML = artist + ":" + song;
+				document.getElementById("body").appendChild(block);
+			}
+		}
 	}
 }())
