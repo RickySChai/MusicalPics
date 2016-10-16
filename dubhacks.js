@@ -15,7 +15,7 @@
 		request.send();
 	}
 
-	
+
 	function getCredentials(cb) {
 		console.log("getting creds");
 	    var data = {
@@ -92,14 +92,9 @@
 	}
 
 	function run(imgurl) {
-	    if (Math.floor(Date.now() / 1000) - localStorage.getItem('tokenTimeStamp') > 86400
-	        || localStorage.getItem('accessToken') === null) {
 	        getCredentials(function() {
 	            return postImage(imgurl);
 	        });
-	    } else {
-	        return postImage(imgurl);
-	    }
 	}
 
 	function getInfo() {
