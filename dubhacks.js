@@ -4,10 +4,6 @@
 	var trackid = [];
 	var tag = "";
 
-	var app = new Clarifai.App(
-		'ppXwxVsxXZqC2_Bd3kkt6N8JXccqppjeSdCCLtRJ',
-		'VdEcQDxJbU3dw1P45EqjRbl7mSWPRdwZuWjSBfDV'
-	);
 
 	window.onload = function() {
 	}
@@ -19,18 +15,7 @@
 		request.send();
 	}
 
-
-	function makePost() {
-		app.models.predict(Clarifai.GENERAL_MODEL, 'https://samples.clarifai.com/metro-north.jpg').then(
-			function (response) {
-				console.log(response);
-			},
-			function (err) {
-				console.error(err);
-			}
-		);
-	}
-
+	
 	function getCredentials(cb) {
 		console.log("getting creds");
 	    var data = {
