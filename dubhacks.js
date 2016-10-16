@@ -15,7 +15,6 @@
 
 
 	function getCredentials(cb) {
-		console.log("getting creds");
 	    var data = {
 	        'grant_type': 'client_credentials',
 	        'client_id': "ppXwxVsxXZqC2_Bd3kkt6N8JXccqppjeSdCCLtRJ",
@@ -60,7 +59,6 @@
 	    var data = {
 	        'encoded_data': imgurl
 	    };
-	    console.log(data);
 	    var url = 'https://api.clarifai.com/v1/tag';
 	    return axios.post(url, data, {
 	        'headers': {
@@ -82,10 +80,14 @@
 	    } else {
 	        console.log('Sorry, something is wrong.');
 	    }
-	    console.log(tags);
 	    for(var i = 0; i < tags.length; i++) {
 	    	makeRequest("https://api.spotify.com/v1/search?query=" + tags[i] + "&offset=0&limit=20&type=track&market=US");
 	    }
+	    var stringOfTags = "";
+	    for(var tag in tags) {
+	        stringOfTags += tags[tag] + ", ";
+        }
+        console.log(stringOfTags);
 	    return tags;
 	}
 
@@ -102,6 +104,9 @@
 			var song = data.tracks.items[i].name;
 			var artist = data.tracks.items[i].artists[0].name;
 			trackid.push(data.tracks.items[i].id);
+            if(i == 1) {
+                console.log(song + " by " + artist);
+            }
 
 
 			//get album art
