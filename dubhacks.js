@@ -32,6 +32,7 @@
 	}
 
 	function getCredentials(cb) {
+		console.log("getting creds");
 	    var data = {
 	        'grant_type': 'client_credentials',
 	        'client_id': "ppXwxVsxXZqC2_Bd3kkt6N8JXccqppjeSdCCLtRJ",
