@@ -1,10 +1,17 @@
+
+
 (function(){
 
 	"use strict";
 	var bunny = "https://s-media-cache-ak0.pinimg.com/originals/da/98/1e/da981ed53735ed3d5dfec51e94e6024f.jpg";
 	var tag = "";
+
+	var app = new Clarifai.App(
+		CLIENT_ID,
+		CLIENT_SECRET
+	);
+
 	window.onload = function() {
-		run(bunny);
 	}
 	
 	function makeRequest(url) {
@@ -12,8 +19,19 @@
 		request.onload = getInfo;
 		request.open("GET", url, true);
 		request.send();
-
 	}
+
+	function makePost() {
+		app.models.predict(Clarifai.GENERAL_MODEL, 'https://samples.clarifai.com/metro-north.jpg').then(
+			function(response) {
+				console.log(response);
+			},
+			function(err) {
+				console.error(err);
+			}
+		);
+	}
+
 
 	function getCredentials(cb) {
 	    var data = {
@@ -58,8 +76,9 @@
 	function postImage(imgurl) {
 	    var accessToken = localStorage.getItem('accessToken');
 	    var data = {
-	        'url': imgurl
+	        'encoded_data': imgurl
 	    };
+	    console.log(data);
 	    var url = 'https://api.clarifai.com/v1/tag';
 	    return axios.post(url, data, {
 	        'headers': {
@@ -124,4 +143,29 @@
 			}
 		}
 	}
+
+	function getUploadPath() {
+		var myFileTag = document.getElementById("fileUpload");
+		if(myFileTag.files.length > 0) {
+			return myFileTag.files[0].webkitRelativePath + myFileTag.files[0].name;
+		} else {
+			return "";
+		}
+	}
+
+	function getPost() {
+		var data = JSON.parse(this.responseText);
+		console.log(data);
+	}
+
+	document.querySelector('input').addEventListener('change', function(){
+		var reader = new FileReader();
+		reader.onload = function() {
+			var imageData = this.result;
+			document.getElementById('result').innerHTML = '<img src="'+ imageData +'" />';
+			imageData = imageData.replace(/^data:image\/(.*);base64,/, '');
+			postImage(imageData);
+		};
+		reader.readAsDataURL(this.files[0]);
+	}, false);
 }())
