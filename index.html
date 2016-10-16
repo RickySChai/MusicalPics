@@ -15,18 +15,17 @@
 </head>
 
 <body id="body">
-    <div id="all">
-        <div class="">
-            <div id="">
-                <ul id="" class="">
-                    <li id="logo"><a href="#">MusicalPics</a></li>
-                    
-                </ul>
-            </div>
+    <div class="background-image" id="all"></div>
+
+    <div class="content">
+        <div id="nav">
+            <ul id="" class="">
+                <li id="logo"><a href="#">MusicalPics</a></li>
+            </ul>
         </div>
-        <div id="main">
-            <div id="upload-file" class="phase-1 input-field">
-                <div class="file-field input-field">
+        <div class="row" id="main">
+            <div class="col s12 phase-1 input-field">
+                <div id="upload-file" class="file-field input-field">
                     <div id="butt" class="btn">
                         <span>Pic</span>
                         <input name="cameraInput" accept="image/*" type="file" multiple>
@@ -36,15 +35,15 @@
                     </div>
                 </div>
             </div>
-            <button id="random" class="clear btn" onclick="nextSong()">Randomize Next Song</button>
-            <div id="spot-wrapper" class="clear">
+            <div class="buttondiv col s12">
+                <button id="random" class="clear btn" onclick="nextSong()">Randomize Next Song</button>
+            </div>
+            <div id="spot-wrapper" class="col s12 clear">
                 <iframe id="spotify"
                         src="https://embed.spotify.com/track/2AYEOC02WLhUiOoaig2SEH"
                         frameborder="0" allowtransparency="true"
                 ></iframe >
             </div>
-
-
         </div>
 
 

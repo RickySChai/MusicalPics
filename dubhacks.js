@@ -137,7 +137,7 @@
 		var reader = new FileReader();
 		reader.onload = function() {
 			var imageData = this.result;
-			document.getElementById('result').innerHTML = '<img src="'+ imageData +'" />';
+			document.getElementById('all').style.backgroundImage = 'url("' + imageData +'")';
 			imageData = imageData.replace(/^data:image\/(.*);base64,/, '');
 			postImage(imageData);
 		};
