@@ -139,12 +139,14 @@
 	}
 
 	document.querySelector('input').addEventListener('change', function(){
-		var reader = new FileReader();
-		reader.onload = function() {
-			var imageData = this.result;
-			document.getElementById('result').innerHTML = '<img src="'+ imageData +'" />';
-			imageData = imageData.replace(/^data:image\/(.*);base64,/, '');
-			postImage(imageData);
-		};
-		reader.readAsDataURL(this.files[0]);
+		getCredentials(function() {
+			var reader = new FileReader();
+			reader.onload = function() {
+				var imageData = this.result;
+				document.getElementById('result').innerHTML = '<img src="'+ imageData +'" />';
+				imageData = imageData.replace(/^data:image\/(.*);base64,/, '');
+				postImage(imageData);
+			};
+			reader.readAsDataURL(this.files[0]);
+		});
 	}, false);
