@@ -1,9 +1,7 @@
 
-
-(function(){
-
 	"use strict";
 	var bunny = "https://s-media-cache-ak0.pinimg.com/originals/da/98/1e/da981ed53735ed3d5dfec51e94e6024f.jpg";
+	var trackid = [];
 	var tag = "";
 
 	var app = new Clarifai.App(
@@ -21,17 +19,17 @@
 		request.send();
 	}
 
+
 	function makePost() {
 		app.models.predict(Clarifai.GENERAL_MODEL, 'https://samples.clarifai.com/metro-north.jpg').then(
-			function(response) {
+			function (response) {
 				console.log(response);
 			},
-			function(err) {
+			function (err) {
 				console.error(err);
 			}
 		);
 	}
-
 
 	function getCredentials(cb) {
 	    var data = {
@@ -118,13 +116,14 @@
 	    }
 	}
 
-
 	function getInfo() {
 		var data = JSON.parse(this.responseText);
 		var artists = [];
 		for(var i = 0; i < data.tracks.items.length; i++) {	
 			var song = data.tracks.items[i].name;
 			var artist = data.tracks.items[i].artists[0].name;
+			trackid.push(data.tracks.items[i].id);
+
 
 			//get album art
 			//get canonical id -> play music
@@ -168,4 +167,3 @@
 		};
 		reader.readAsDataURL(this.files[0]);
 	}, false);
-}())

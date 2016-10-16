@@ -42,6 +42,29 @@
     </div>
 
 
+    <!--Get the spotify track id
+        var id = GET https:api.spotify.com/v1/tracks/trackid
+         var track = "https://open.spotify.com/track/" + id;
+          src=track;-->
+    <iframe id="spotify"
+            src="https://open.spotify.com/track/2AYEOC02WLhUiOoaig2SEH"
+            width="300" height="380"
+            align="right"
+            frameborder="0" allowtransparency="true"
+    ></iframe >
+
+
+    <button class="button" onclick="nextSong()">Randomize Next Song</button>
+
+    <!-- get random track id from array -->
+    <script>
+        function nextSong() {
+            var randNum = Math.floor(Math.random() * trackid.length);
+            console.log(randNum);
+            document.getElementById("spotify").src = "https://open.spotify.com/track/" + trackid[randNum];
+        }
+    </script>
+
     <script src="dubhacks.js" type="text/javascript"></script>
 
 </body>
