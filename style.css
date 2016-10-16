@@ -1,0 +1,34 @@
+#image {
+    content:url("https://theluxurytravelexpert.files.wordpress.com/2014/01/scenery.jpg");
+    height: 20em;
+}
+
+#spotify {
+    content:url(http://www.gannett-cdn.com/-mm-/d7f7245c264b6c2de102ff7b84cc0b2519d30f74/c=0-167-750-1167&r=537&c=0-0-534-712/local/-/media/2015/07/20/USATODAY/USATODAY/635729792036294442-Discover-Weekly---Playlists-iOS.png);
+    height: 20em;
+}
+
+ .button {
+     display: inline-block;
+     padding: 15px 25px;
+     font-size: 20px;
+     cursor: pointer;
+     text-align: center;
+     text-decoration: none;
+     outline: none;
+     color: #fff;
+     background-color: #4CAF50;
+     border: none;
+     border-radius: 15px;
+     box-shadow: 0 9px #999;
+ }
+
+.button:hover {background-color: #3e8e41}
+
+/*
+.button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+*/

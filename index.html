@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>MusicalPics</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+
+    <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+    <meta charset=utf-8 />
+
+
+</head>
+
+<body>
+    <h1 align="center">MusicalPics (or something)</h1>
+    <p align="center"> Search a video from YouTube and songs will be recommended based on the visuals in the video!</p>
+
+    <input type='file' onchange="readURL(this);" />
+    <img id="blah" src="#" alt="your image" />
+
+
+    <iframe src="https://embed.spotify.com/?uri=spotify:album:4VZh7EI0gjL2FkLWNBVIWf"
+            width="300" height="380"
+            align="right"
+            frameborder="0" allowtransparency="true"
+    ></iframe>
+
+    <script>
+
+        function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah')
+                        .attr('src', e.target.result)
+                        .width(500)
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }</script>
+
+    <!--
+    <form onsubmit="go_get(); return false;" >
+        <input type="text"  id="findVideos"/>
+        <input type="submit" value="Search Playlists" />
+    </form>
+
+    <script type="text/javascript">
+        function go_get(){
+            var base_url = 'http://www.youtube.com/embed?listType=search&list=';
+            var search_field = document.getElementById('findVideos').value;
+            var target_url = base_url + search_field;
+            var ifr = document.getElementById('searchBox');
+            ifr.src = target_url;
+            return false;
+        }
+    </script>
+
+    <iframe id="searchBox" width="640" height="360" ></iframe>
+
+
+
+    <form onsubmit="choose_video(); return false;" >
+        <input type="submit" value="Choose This Video" />
+        <input type="text"  id="chooseVid"/>
+    </form>
+
+    <script type="text/javascript">
+        function choose_video(){
+            var base_url = 'http://www.youtube.com/embed?listType=search&list=';
+            var search_field = document.getElementById('Choose').value;
+            var target_url = base_url + search_field;
+            var ifr = document.getElementById('youriframe');
+            ifr.src = target_url;
+            return false;
+        }
+    </script>
+
+    <textarea rows="1" cols="50">
+    url here
+    </textarea>
+    -->
+
+
+</body>
+</html>
