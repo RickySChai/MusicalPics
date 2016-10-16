@@ -1,67 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <title>MusicalPics</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-    <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
-    <!-- Compiled and minified JavaScript -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
     <script type="text/javascript" src="https://sdk.clarifai.com/js/clarifai-2.0.9.js"></script>
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="keys.js" type="application/javascript"></script>
-
     <meta charset=utf-8 />
-
-
 </head>
 
 <body id="body">
-    <div>
-        <ul>
-            <li>MusicalPics</li>
-            <li>About</li>
-            <li>Camera</li>
-        </ul>
-    </div>
-    <div id="main">
-        <div class="phase-1">
-            <input type="file" capture="camera" accept="image/*" id="cameraInput" name="cameraInput">
-            <span>Upload Image</span>
-        </div>
-        <div class="phase-2">
-            <div class="recommendations">
-
+    <div id="all">
+        <div class="">
+            <div id="">
+                <ul id="" class="">
+                    <li id="logo"><a href="#">MusicalPics</a></li>
+                    
+                </ul>
             </div>
-            <div id="result"></div>
         </div>
+        <div id="main">
+            <div id="upload-file" class="phase-1 input-field">
+                <div class="file-field input-field">
+                    <div id="butt" class="btn">
+                        <span>Pic</span>
+                        <input name="cameraInput" accept="image/*" type="file" multiple>
+                    </div>
+                    <div class="hidden file-path-wrapper">
+                        <input id="gone" name="cameraInput" accept="image/*" class="file-path validate" type="text">
+                    </div>
+                </div>
+            </div>
+            <button id="random" class="clear btn" onclick="nextSong()">Randomize Next Song</button>
+            <div id="spot-wrapper" class="clear">
+                <iframe id="spotify"
+                        src="https://embed.spotify.com/track/2AYEOC02WLhUiOoaig2SEH"
+                        frameborder="0" allowtransparency="true"
+                ></iframe >
+            </div>
+
+
+        </div>
+
+
+        <!--Get the spotify track id
+            var id = GET https:api.spotify.com/v1/tracks/trackid
+             var track = "https://open.spotify.com/track/" + id;
+              src=track;-->
+
+
+
     </div>
-
-
-    <!--Get the spotify track id
-        var id = GET https:api.spotify.com/v1/tracks/trackid
-         var track = "https://open.spotify.com/track/" + id;
-          src=track;-->
-    <iframe id="spotify"
-            src="https://open.spotify.com/track/2AYEOC02WLhUiOoaig2SEH"
-            width="300" height="380"
-            align="right"
-            frameborder="0" allowtransparency="true"
-    ></iframe >
-
-
-    <button class="button" onclick="nextSong()">Randomize Next Song</button>
 
     <!-- get random track id from array -->
     <script>
         function nextSong() {
             var randNum = Math.floor(Math.random() * trackid.length);
             console.log(randNum);
-            document.getElementById("spotify").src = "https://open.spotify.com/track/" + trackid[randNum];
+            document.getElementById("spotify").src = "https://embed.spotify.com/track/" + trackid[randNum];
         }
     </script>
 

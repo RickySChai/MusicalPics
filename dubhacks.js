@@ -115,9 +115,6 @@
 			}
 			if(flag) {	
 				artists.push(artist);
-				var block = document.createElement("div");
-				block.innerHTML = artist + " : " + song;
-				document.getElementById("body").appendChild(block);
 			}
 		}
 	}

@@ -5,10 +5,14 @@
 
 #spotify {
     content:url(http://www.gannett-cdn.com/-mm-/d7f7245c264b6c2de102ff7b84cc0b2519d30f74/c=0-167-750-1167&r=537&c=0-0-534-712/local/-/media/2015/07/20/USATODAY/USATODAY/635729792036294442-Discover-Weekly---Playlists-iOS.png);
-    height: 20em;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    height: 500px;
+    width: auto;
 }
 
- .button {
+.button {
      display: inline-block;
      padding: 5px 15px;
      font-size: 20px;
@@ -40,7 +44,7 @@
 }
 .wrapper {
     min-height: 100%;
-    height: auto !important;
+    height: auto;
     height: 100%;
     margin: 0 auto -30px;
 }
@@ -48,3 +52,78 @@
     height: 30px; /* .push must be the same height as .footer */
 }
 .footer {background:#ccc;}
+
+.hidden, #gone {
+    visibility: hidden;
+    width: 0;
+    top: -50px;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
+
+#icon {
+    display: inline-block;
+    float: left;
+}
+
+#upload-file {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+    height: 45px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 0;
+    height: 1px;
+}
+
+#butt {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.clear {
+    clear: both;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+iframe {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#spot-wrapper {
+
+}
+
+#random {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
